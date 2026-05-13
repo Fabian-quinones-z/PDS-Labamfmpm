@@ -1,3 +1,18 @@
+```
+proyecto_fsk/
+│
+├── docs/
+│   ├── informe.md
+│   ├── figuras/
+│   └── referencias.bib
+│
+├── src/
+│
+├── outputs/
+│
+└── README.md
+```
+
 # Las tres primeras modulaciones clásicas que normalmente se estudian son:
 
 
