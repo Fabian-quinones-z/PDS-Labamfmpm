@@ -54,15 +54,20 @@ FREQ_1 = 4.1e6
 
 y cada frecuencia representa un bit distinto:
 
-
+$$
 bit 0 → f0f_0f0​
+$$
 
-
+$$
 bit 1 → f1f_1f1​
-
+$$
 
 La relación conceptual es:
+
+$$
 s(t)=Acos⁡(2πfit)s(t)=A\cos(2\pi f_i t)s(t)=Acos(2πfi​t)
+$$
+
 donde:
 
 
@@ -147,8 +152,9 @@ Clase:
 BFSKModulator
 Convierte bits en señales sinusoidales.
 
-$$
+
 Si el bit es 0:
+$$
 f=f0f=f_0f=f0​
 $$
 
@@ -156,7 +162,11 @@ Si el bit es 1:
 
 $$
 f=f1f=f_1f=f1​
+$$
+
 La señal transmitida es:
+
+$$
 si(t)=Acos⁡(2πfit)s_i(t)=A\cos(2\pi f_i t)si​(t)=Acos(2πfi​t)
 $$
 
