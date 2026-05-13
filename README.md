@@ -3,12 +3,13 @@ proyecto_fsk/
 │
 ├── docs/
 │   ├── informe.md
-│   ├── figuras/
+│   ├── figuras/        #Guardar aquí las gràficas de la docmentación
 │   └── referencias.bib
-│
 ├── src/
-│
-├── outputs/
+│   ├── ASK_tx_rx.py  
+│   ├── FSK_tx_rx.py  
+│   └── PSK_tx_rx.py
+├── outputs/           #Dirifir aqui las plot 
 │
 └── README.md
 ```
