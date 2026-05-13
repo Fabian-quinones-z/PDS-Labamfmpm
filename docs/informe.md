@@ -62,6 +62,7 @@ ASK Demodulator
 Bit Decoder
    ↓
 BER Analyzer
+```
 
 ## Canal inalámbrico
 
@@ -125,6 +126,7 @@ A = amplitud constante
 
 ## Arquitectura del sistema
 
+```
 BitStream
    ↓
 FSK Modulator
@@ -146,6 +148,7 @@ Bit Decoder
 BER Analyzer
 
 ## BFSK implementado
+```
 
 El sistema implementa BFSK:
 
@@ -208,6 +211,7 @@ bit 1 → fase π
 
 ## Arquitectura del sistema
 
+```
 BitStream
    ↓
 BPSK Modulator
@@ -227,6 +231,7 @@ BPSK Demodulator
 Bit Decoder
    ↓
 BER Analyzer
+```
 
 ## Demodulación
 
