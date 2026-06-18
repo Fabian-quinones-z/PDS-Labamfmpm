@@ -84,59 +84,33 @@ Pendiente:
 TX
 
 MENSAJE
-
 ▼
-
 TEXT_TO_BITS
-
 ▼
-
 BITS_TO_RGB
-
 ▼
-
 FRAME_BUILDER
-
 ▼
-
 DISPLAY
-
 ▼
-
 PANTALLA
-
 ▼
-
 CANAL ÓPTICO
-
 ▼
-
 RX
 
 WEBCAM TRUST 1080P
-
 ▼
-
-ROI
-
+RoI
 ▼
-
 EXTRACCIÓN DE CELDAS
-
 ▼
-
 CLASIFICACIÓN RGB
-
 ▼
-
 RECONSTRUCCIÓN DE BITS
-
 ▼
-
 ASCII
-
 ▼
-
 MENSAJE
 
 # Estructura del Proyecto
@@ -146,29 +120,17 @@ MENSAJE
 pds_proyecto_optico/
 
 ├── generar_frames_texto.py
-
 ├── generar_frames_rgb_texto.py
-
 ├── generar_frame_rgb_prueba.py
-
 ├── receptor_multiframe_manual.py
-
 ├── receptor_rgb_manual.py
-
 ├── rx_video_rgb_5x4.py
-
 ├── capturar_frame.py
-
 ├── detectar_camaras.py
-
 ├── frames_tx/
-
 ├── frames_rgb/
-
 ├── frames_video_rgb/
-
 ├── evidencias/
-
 └── evidencias_finales/
 
 ```
@@ -180,45 +142,29 @@ La primera versión del sistema empleó modulación OOK.
 ```
 
 1 = Blanco
-
 0 = Negro
 
 ```
 
 Cada frame representaba un único carácter ASCII.
-
 Flujo:
 
 ```
 
 Texto
-
 ↓
-
 ASCII
-
 ↓
-
 Bits
-
 ↓
-
 Pantalla
-
 ↓
-
 Cámara
-
 ↓
-
 Bits
-
 ↓
-
 ASCII
-
 ↓
-
 Texto
 
 ```
@@ -228,13 +174,9 @@ Texto
 Posteriormente se implementó modulación RGB de cuatro símbolos.
 
 ```
-
 00 = ROJO
-
 01 = VERDE
-
 10 = AZUL
-
 11 = BLANCO
 
 ```
@@ -294,27 +236,16 @@ Equivalentes a:
 Mensaje
 
 ↓
-
 text_to_bits()
-
 ↓
-
 bits_to_rgb()
-
 ↓
-
 build_frame()
-
 ↓
-
 frame.png
-
 ↓
-
 video.mp4
-
 ↓
-
 Pantalla
 
 ```
@@ -324,33 +255,19 @@ Pantalla
 ```
 
 Frame
-
 ↓
-
 ROI
-
 ↓
-
 Extracción de celdas
-
 ↓
-
 Promedio BGR
-
 ↓
-
 Clasificación RGB
-
 ↓
-
 Reconstrucción binaria
-
 ↓
-
 ASCII
-
 ↓
-
 Mensaje
 
 ```
@@ -515,7 +432,6 @@ Código ASCII:
 Agrupando de dos en dos:
 
 ```
-
 01 00 10 00
 
 ```
@@ -523,13 +439,9 @@ Agrupando de dos en dos:
 Conversión a símbolos:
 
 ```
-
 01 → VERDE
-
 00 → ROJO
-
 10 → AZUL
-
 00 → ROJO
 
 ```
@@ -549,11 +461,8 @@ ASCII:
 ```
 
 H = 01001000
-
 O = 01001111
-
 L = 01001100
-
 A = 01000001
 
 ```
@@ -569,13 +478,9 @@ Bits:
 Símbolos:
 
 ```
-
 01 00 10 00
-
 01 00 11 11
-
 01 00 11 00
-
 01 00 00 01
 
 ```
@@ -584,11 +489,8 @@ RGB:
 
 ```
 [VERDE] [ROJO] [AZUL] [ROJO]
-
 [VERDE] [ROJO] [BLANCO] [BLANCO]
-
 [VERDE] [ROJO] [BLANCO] [ROJO]
-
 [VERDE] [ROJO] [ROJO] [VERDE]
 ```
 
@@ -599,21 +501,13 @@ Transmisor:
 ```
 
 Texto
-
 ↓
-
 ASCII
-
 ↓
-
 Bits
-
 ↓
-
 Símbolos RGB
-
 ↓
-
 Pantalla
 
 ```
@@ -623,7 +517,6 @@ Canal:
 ```
 
 Canal Óptico Visible
-
 (VLC)
 
 ```
@@ -633,27 +526,18 @@ Receptor:
 ```
 
 Cámara
-
 ↓
-
 Clasificador RGB
-
 ↓
-
 Bits
-
 ↓
-
 ASCII
-
 ↓
-
 Texto
 
 ```
 
 # Frecuencia de Símbolos
-
 Versión RGB 5×4:
 
 ```
@@ -695,15 +579,12 @@ Frecuencia de refresco utilizada:
 ```
 
 Por tanto:
-
 Frecuencia de símbolos:
 
 ```
 
 20 símbolos/frame × 10 frame/s
-
 =
-
 200 símbolos/s
 
 ```
@@ -713,9 +594,7 @@ Tasa binaria:
 ```
 
 200 símbolos/s × 2 bits/símbolo
-
 =
-
 400 bit/s
 
 ```
@@ -733,27 +612,22 @@ VERDE                         00
              ROJO
 ```
 
-
 Tasa de caracteres:
 
 ```
 
 400 / 8
-
 =
-
 50 caracteres/s
 
 ```
 
 # Capacidad Experimental
-
 Video generado:
 
 ```
 
 100 frames
-
 10 segundos
 
 ```
@@ -781,11 +655,8 @@ Velocidad efectiva:
 500 caracteres
 
 ÷
-
 10 segundos
-
 =
-
 50 caracteres/s
 
 ```
@@ -807,7 +678,6 @@ RGB:
 ```
 
 4 símbolos
-
 2 bits/símbolo
 
 ```
@@ -823,7 +693,6 @@ El proyecto fue desarrollado de forma incremental, validando cada etapa antes de
 # Etapa 1: Modulación OOK
 
 La primera implementación utilizó modulación On-Off Keying (OOK).
-
 En esta etapa cada símbolo transmitía un único bit de información.
 
 ```
@@ -857,11 +726,8 @@ Una vez validado el canal óptico binario, se implementó una modulación de cua
 ```
 
 Rojo   = 00
-
 Verde  = 01
-
 Azul   = 10
-
 Blanco = 11
 
 ```
@@ -958,7 +824,6 @@ Equivalentes a:
 Diseño:
 
 ```
-
 [ c1 ][ c2 ][ c3 ][ c4 ][ c5 ]
 [ c6 ][ c7 ][ c8 ][ c9 ][ c10]
 [ c11][ c12][ c13][ c14][ c15]
@@ -967,9 +832,7 @@ Diseño:
 ```
 
 Esta arquitectura permitió incrementar considerablemente la cantidad de información transmitida por imagen.
-
 Prueba realizada:
-
 Recuperación correcta de:
 
 ```
@@ -991,7 +854,6 @@ Resultado:
 # Etapa 5: Transmisión de Video
 
 Una vez validado el funcionamiento de la matriz RGB 5×4 se desarrolló un generador automático de secuencias.
-
 Archivo principal:
 
 ```
@@ -1017,23 +879,18 @@ transportando:
 ```
 
 Posteriormente los frames fueron convertidos en un video MP4.
-
 Parámetros:
 
 ```
 
 100 frames
-
 10 FPS
-
 10 segundos
-
 500 caracteres
 
 ```
 
 # Fundamentación Teórica
-
 La capacidad teórica se obtiene de:
 
 ```
@@ -1067,9 +924,7 @@ Finalmente:
 10 FPS
 ×
 10 segundos
-
 =
-
 500 caracteres
 
 ```
@@ -1077,7 +932,6 @@ Finalmente:
 # Etapa 6: Recepción Automática de Video
 
 Se desarrolló un receptor capaz de procesar automáticamente secuencias RGB.
-
 Archivo principal:
 
 ```
@@ -1087,7 +941,6 @@ rx_video_rgb_5x4.py
 ```
 
 Funciones implementadas:
-
 * Selección de ROI.
 * Captura automática.
 * Clasificación RGB.
@@ -1096,13 +949,11 @@ Funciones implementadas:
 * Acumulación automática de mensajes.
 
 Resultados experimentales:
-
 Prueba 1:
 
 ```
 
 88 frames detectados
-
 440 caracteres recuperados
 
 ```
@@ -1112,7 +963,6 @@ Prueba 2:
 ```
 
 100 frames detectados
-
 500 caracteres recuperados
 
 ```
@@ -1148,13 +998,9 @@ Capacidad:
 ```
 
 16 símbolos × 2 bits
-
 =
-
 32 bits/frame
-
 =
-
 4 caracteres/frame
 
 ```
@@ -1177,9 +1023,7 @@ Los resultados obtenidos constituyen una validación práctica de los principios
 ```
 
 100 frames detectados
-
 500 caracteres recibidos
-
 Recuperación parcial con errores debidos a clasificación cromática y sincronización temporal.
 
 ```
